@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lumina - Multimodal Learning Assistant
 
-## Getting Started
+> **Hackathon Submission**: Multimodal AI for Accessible Education
 
-First, run the development server:
+**Lumina** is an AI-powered learning platform designed to make educational content accessible to everyone, specifically targeting students with cognitive, visual, and auditory disabilities.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Dashboard Preview](./public/dashboard-preview.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. **Multimodal Content Transformation**
+- **Automated Simplification**: Uses GPT-4o to rewrite complex text to a Grade 5-6 reading level for cognitive accessibility.
+- **Audio Generation**: Converts text to high-quality speech using Google Cloud TTS Studio voices.
+- **Transcription**: (Planned/Mocked) Uploaded audio is transcribed using OpenAI Whisper.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. **AI Teaching Assistant**
+- **Context-Aware Q&A**: A floating chat assistant grounded in the specific lesson content.
+- **Explain Like I'm 5**: Ask follow-up questions to break down difficult concepts.
 
-## Learn More
+### 3. **Accessibility First Design**
+- **Learner Preferences**:
+  - **Font Size**: Adjustable typography toggles.
+  - **High Contrast Mode**: WCAG AAA compliant yellow-on-black theme.
+  - **Reduced Motion**: Disables non-essential animations.
+  - **Vegetable**: (Just kidding - Voice Navigation support is prepared).
+- **Compliance**: Built with Radix UI primitives for full keyboard navigation and screen reader support (ARIA landmarks, Live Regions).
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + Shadcn/UI
+- **Database**: SQLite (Dev) / Prisma ORM
+- **AI Services**:
+  - OpenAI (GPT-4o, Whisper)
+  - Google Cloud (Text-to-Speech)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Setup & Running Locally
 
-## Deploy on Vercel
+1. **Clone & Install**
+   ```bash
+   git clone <repo-url>
+   cd IASF-2K26
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Environment Setup**
+   Copy `.env.example` to `.env` and add your keys:
+   ```env
+   OPENAI_API_KEY=sk-...
+   GOOGLE_APPLICATION_CREDENTIALS=./google-credentials.json
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Database Setup**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   # Optional: Seed data
+   # npx ts-node prisma/seed.ts
+   ```
+
+4. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000)
+
+## 🧪 Deployment
+
+This project is optimized for deployment on **Vercel**.
+See `DEPLOYMENT.md` for detailed instructions.
+
+## 📄 License
+
+MIT License. Built for the IASF 2026 Hackathon.

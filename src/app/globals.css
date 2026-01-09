@@ -1,26 +1,399 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius));
+  --radius-lg: calc(var(--radius) + 2px);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Theme Variables - EduAIThon ICTIEE 2026 Conference Branding */
+:root {
+  /* 
+   * EduAIThon 2026 Color Schema
+   * Primary: Deep Teal (#0F4C45)
+   * Secondary: Cream (#F2EAD3)
+   * Accent: Soft Gold (#D6C6A1)
+   * Text: Dark Gray (#2E2E2E)
+   */
+
+  /* Background & Foreground */
+  --background: #FFFFFF;
+  --foreground: #2E2E2E;
+
+  /* Cards - Cream background */
+  --card: #F2EAD3;
+  --card-foreground: #2E2E2E;
+
+  /* Popover */
+  --popover: #FFFFFF;
+  --popover-foreground: #2E2E2E;
+
+  /* Primary - Deep Teal */
+  --primary: #0F4C45;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary - Cream */
+  --secondary: #F2EAD3;
+  --secondary-foreground: #2E2E2E;
+
+  /* Muted */
+  --muted: #F5F0E6;
+  --muted-foreground: #5A5A5A;
+
+  /* Accent - Soft Gold */
+  --accent: #D6C6A1;
+  --accent-foreground: #2E2E2E;
+
+  /* Destructive */
+  --destructive: #B91C1C;
+  --destructive-foreground: #FFFFFF;
+
+  /* Borders & Inputs */
+  --border: #D6C6A1;
+  --input: #F2EAD3;
+  --ring: #0F4C45;
+
+  --radius: 0.5rem;
+
+  /* Charts - Academic tones */
+  --chart-1: #0F4C45;
+  --chart-2: #1A6B62;
+  --chart-3: #D6C6A1;
+  --chart-4: #8B7355;
+  --chart-5: #4A7C74;
+
+  /* Sidebar */
+  --sidebar: #0F4C45;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #D6C6A1;
+  --sidebar-primary-foreground: #2E2E2E;
+  --sidebar-accent: #1A6B62;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #1A6B62;
+  --sidebar-ring: #D6C6A1;
+}
+
+/* Dark Mode - Conference Theme */
+.dark {
+  /* Background - Deep Teal based */
+  --background: #0A3530;
+  --foreground: #F2EAD3;
+
+  /* Cards - Darker teal */
+  --card: #0F4C45;
+  --card-foreground: #F2EAD3;
+
+  /* Popover */
+  --popover: #0F4C45;
+  --popover-foreground: #F2EAD3;
+
+  /* Primary - Cream in dark mode */
+  --primary: #D6C6A1;
+  --primary-foreground: #0A3530;
+
+  /* Secondary */
+  --secondary: #1A6B62;
+  --secondary-foreground: #F2EAD3;
+
+  /* Muted */
+  --muted: #1A6B62;
+  --muted-foreground: #B8A88A;
+
+  /* Accent - Gold */
+  --accent: #D6C6A1;
+  --accent-foreground: #0A3530;
+
+  /* Destructive */
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+
+  /* Borders */
+  --border: rgba(214, 198, 161, 0.2);
+  --input: rgba(214, 198, 161, 0.15);
+  --ring: #D6C6A1;
+
+  /* Charts */
+  --chart-1: #D6C6A1;
+  --chart-2: #4A7C74;
+  --chart-3: #F2EAD3;
+  --chart-4: #8B7355;
+  --chart-5: #1A6B62;
+
+  /* Sidebar */
+  --sidebar: #0A3530;
+  --sidebar-foreground: #F2EAD3;
+  --sidebar-primary: #D6C6A1;
+  --sidebar-primary-foreground: #0A3530;
+  --sidebar-accent: #1A6B62;
+  --sidebar-accent-foreground: #F2EAD3;
+  --sidebar-border: rgba(214, 198, 161, 0.2);
+  --sidebar-ring: #D6C6A1;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-background text-foreground antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply tracking-tight font-semibold text-foreground;
+}
+
+h1 {
+  @apply text-3xl md:text-4xl lg:text-5xl mb-6;
+}
+
+h2 {
+  @apply text-2xl md:text-3xl mb-4;
+}
+
+h3 {
+  @apply text-xl md:text-2xl mb-3;
+}
+
+/* Component Overrides for "Professional" Feel */
+.glass-panel {
+  @apply bg-card/60 border border-border/50 backdrop-blur-md shadow-sm;
+}
+
+/* Accessibility Utilities */
+.text-large {
+  font-size: 110%;
+}
+
+.text-extra-large {
+  font-size: 125%;
+}
+
+.font-style-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-style-dyslexic {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  line-height: 1.6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* High contrast text - WCAG AA compliant */
+  p,
+  span,
+  li {
+    color: #2E2E2E;
+  }
+
+  .dark p,
+  .dark span,
+  .dark li {
+    color: #F2EAD3;
+  }
+
+  /* Card readability improvements */
+  .card,
+  [class*="bg-card"] {
+    border: 1px solid #D6C6A1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Input readability */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    color: #2E2E2E;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid #0F4C45;
+    outline-offset: 2px;
+  }
+}
+
+/* =========================================
+   PART 1: GLOBAL COLOR CONSISTENCY RULE
+   MANDATORY: White text on Teal/Green
+   ========================================= */
+@layer utilities {
+  .text-on-teal {
+    color: #FFFFFF !important;
+  }
+
+  /* Enforce on specific SOLID background classes only.
+     Avoid [class*="bg-primary"] as it catches bg-primary/10 (light) */
+  .bg-primary,
+  .bg-primary\/90,
+  .bg-teal-900,
+  .bg-emerald-900,
+  [data-state="checked"].data-\[state\=checked\]\:bg-primary,
+  .btn-primary {
+    color: #FFFFFF;
+  }
+
+  /* Ensure hover states don't break contrast on SOLID backgrounds */
+  .bg-primary:hover,
+  .bg-teal-900:hover {
+    color: #FFFFFF;
+  }
+}
+
+/* =========================================
+   PART 2: GLOBAL ANIMATION & MOTION RULES
+   OBJECTIVE: Subtle, professional motion
+   ========================================= */
+@layer components {
+
+  /* Interactive Element Defaults */
+  .btn-interactive,
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  .interactive-card {
+    transition-property: transform, background-color, box-shadow, opacity;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* Ease-out-ish */
+  }
+
+  /* 1. Hover Effects */
+  .btn-interactive:hover,
+  button:not(:disabled):hover,
+  [role="button"]:not([aria-disabled="true"]):hover {
+    /* Smooth background darkening handled by tailwind opacity utilities usually, 
+       but we enforce subtle elevation here if not overridden */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 76, 69, 0.15);
+    /* Subtle teal shadow */
+  }
+
+  /* 2. Active / Click Effects */
+  .btn-interactive:active,
+  button:not(:disabled):active,
+  [role="button"]:not([aria-disabled="true"]):active {
+    transform: scale(0.98) translateY(0);
+    /* Soft press-down */
+    transition-duration: 100ms;
+  }
+
+  /* 3. Dropdowns / Modals / Toggles */
+  .animate-slide-up {
+    animation: slideUp 200ms ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 200ms ease-out forwards;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY & PERFORMANCE
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
