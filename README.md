@@ -63,7 +63,7 @@
    ```bash
    npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000)
+   Open https://team-aarambham-vercel.vercel.app/
 
 ## 🧪 Deployment
 
